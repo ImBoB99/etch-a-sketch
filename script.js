@@ -2,8 +2,18 @@ const container = document.querySelector(".container");
 const gridDimensions = 800;
 let squareDimensions = 0;
 
+let randomR, randomG, randomB;
+
+function randomizeColor() {
+    randomR = Math.floor(Math.random() * 256);
+    randomG = Math.floor(Math.random() * 256);
+    randomB = Math.floor(Math.random() * 256);
+}
+
 function hoverPaint(e) {
-    e.target.classList.add("paint");
+    //e.target.classList.add("paint");
+    randomizeColor();
+    e.target.setAttribute("style", `width:${squareDimensions}px; height:${squareDimensions}px; background-color: rgb(${randomR}, ${randomG}, ${randomB});`);
 }
 
 function gridSize() {
@@ -40,3 +50,5 @@ const btn = document.querySelector(".btn");
 btn.addEventListener("click", gridSize);
 
 setGrid();
+
+
